@@ -39,7 +39,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        toast.error(error);
+        toast.error("Something went wrong");
       })
       .finally(() => {
         setIsLoading(false);
@@ -84,15 +84,15 @@ const RegisterModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        // onClick={() => signIn('google')}
+        onClick={() => {}}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        // onClick={() => signIn('github')}
+        onClick={() => {}}
       />
-      <div className="text-neutral-500 text-center mt-4 font-light ">
+      <div className="text-neutral-500 text-center mt-4 font-light">
         <p>
           Already have an account?
           <span
