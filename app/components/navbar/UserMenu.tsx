@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { useCallback, useEffect, useState } from "react";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -51,7 +51,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           onClick={toggleOpen}
           className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
-          <AiOutlineMenu />
+          {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
           <div className="hidden md:block">
             <Avatar src={currentUser?.image} />
           </div>
@@ -65,10 +65,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem
                   label="My trips"
-                  onClick={() => router.push("/trips")}
+                  onClick={() => {
+                    router.push("/trips");
+                    toggleOpen();
+                  }}
                 />
                 <MenuItem label="My favorites" onClick={() => {}} />
-                <MenuItem label="My reservations" onClick={() => {}} />
+                <MenuItem
+                  label="My reservations"
+                  onClick={() => {
+                    router.push("/reservations");
+                    toggleOpen();
+                  }}
+                />
                 <MenuItem label="My properties" onClick={() => {}} />
                 <MenuItem label="Airbnb your home" onClick={rentModal.onOpen} />
                 <hr />
