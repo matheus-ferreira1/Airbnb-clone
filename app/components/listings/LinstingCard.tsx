@@ -12,9 +12,7 @@ import useCountries from "@/app/hooks/useCountries";
 //   SafeUser
 // } from "@/app/types";
 
-// import HeartButton from "../HeartButton";
 import Button from "../Button";
-import ClientOnly from "../ClientOnly";
 import { Listing, Reservation } from "@prisma/client";
 import { SafeUser } from "@/app/types";
 import HeartButton from "../HeartButton";
